@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'miplan.apps.MiplanConfig',
     'allauth',
     'allauth.account',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+
             ],
         },
     },
@@ -73,10 +78,7 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = [
     
-    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 
 ]
@@ -143,4 +145,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static',]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_AUTHENTICATION_METHOD = ''
+
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"

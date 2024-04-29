@@ -1,3 +1,30 @@
 {% extends 'templates/base.html' %}
-{% block body %} Home {% endblock%}
+{% block title %} MiPlan {% endblock %}
 
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <!-- Header row with 28 columns -->
+           
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            
+    </thead>
+    <tbody>
+        <!-- Table rows with data -->
+        
+            {% for data in all_data %}
+            <tr>
+            <td>{{ data.0 }}</td>
+            <td>{{ data.1 }}</td>
+            <td>{{ data.2 }}</td>
+            </tr>
+            {% endfor %}
+            
+        </tr>
+        <!-- Add more rows with data as needed -->
+    </tbody>
+</table>
+{% endblock %}
