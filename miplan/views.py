@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 import psycopg2
 
+from .forms import InsertForm
+
 def plan_home_view(request):
     try:
         conn = psycopg2.connect("dbname=plan_test_db user=postgres password=eslam010")
@@ -17,3 +19,9 @@ def plan_home_view(request):
         return render(request, 'miplan/home.html', context)
             
     return render(request, 'miplan/home.html')
+
+
+def insert_plan_view(request):
+    form = InsertForm()
+    return render(request, 'miplan/insert.html', {"form": form})
+        
