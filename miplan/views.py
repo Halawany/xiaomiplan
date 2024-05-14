@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 import psycopg2
 
 from .forms import InsertForm
@@ -22,6 +22,44 @@ def plan_home_view(request):
 
 
 def insert_plan_view(request):
-    form = InsertForm()
+    if request.method == "POST":
+        form = InsertForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data["first_name"]
+            last_name = form.cleaned_data["last_name"]
+            try:
+                conn = psycopg2.connect("dbname=plan_test_db user=postgres password=eslam010")
+                with conn.cursor() as cur:
+                    cur.execute("SELECT id FROM users ORDER BY id DESC;")
+                    last_id= cur.fetchone()[0] + 1
+                    cur.execute("INSERT INTO users (id, first_name, last_name) VALUES (%s, %s, %s);", (last_id, first_name, last_name))
+                    conn.commit()
+                    conn.close()
+                    return redirect('home')
+            except psycopg2.Error as e:
+                print("Error occured while inserting data:", e)
+                context = {"error_message": e}
+                return render(request, 'miplan/insert.html', context)
+            
+    else:
+        form = InsertForm()
     return render(request, 'miplan/insert.html', {"form": form})
-        
+
+def update_plan_view(request):
+    if request.method == "POST":
+        form = InsertForm(request.POST)
+        if form.is_valid():
+            id = form.cleaned_data["id"]
+            first_name = form.cleaned_data["first_name"]
+            last_name = form.cleaned_data["last_name"]
+            try:
+                conn = psycopg2.connect("dbname=plan_test_db user=postgres password=eslam010")
+                with conn.cursor() as cur:
+                    cur.execute("UPDATE users SET first_name = %s, last_name = %s WHERE id = %s;", (first_name, last_name, id))
+                    conn.commit()
+                    conn.close()
+                    return redirect('home')
+            except psycopg2.Error as e:
+                print("Error occured while inserting data:", e)
+                context = {"error_message": e}
+                return render(request, 'miplan/insert.html', context)

@@ -8,18 +8,20 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-
+{% if user.is_authenticated %}
 <div class="navbar">
     <h2>Welcome, <span id="username">{{ user.username }}</span></h2>
     <div class="menu-item" id="insert-plan">
       Show Plan
     </div>
     <div class="menu-item" id="update-plan">Update Plan</div>
-    <div class="menu-item" id="show-plan">Insert New Plan</div>
+    <div class="menu-item" id="show-plan"><a href="{% url 'insert' %}">Insert New Plan<a></div>
 </div>
 {% block body %}
 
 {% endblock %}
+
+{% endif %}
 <script src="{% static 'js/script.js' %}"></script>
 
 </body>

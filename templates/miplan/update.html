@@ -2,10 +2,10 @@
 {% block title %}Insert new plan{% endblock %}
 {% block body %}
 <div class="form-container">
-  <h2>Insert New Plan</h2>
-  <form id="insert-form" method="post" action="{% url 'insert' %}" class="mb-3">
+  <h2>Update plan record</h2>
+  <form id="insert-form" method="post" action="{% url 'update' %}" class="mb-3">
     {% csrf_token %}
-    {% comment %} <input type="number" id="id" name="id" class="form-input" placeholder="Enter Row ID number" required> {% endcomment %}
+    <input type="number" id="id" name="id" class="form-input" placeholder="Enter Row ID number" required>
     <input type="text" id="first_name" name="first_name" class="form-input" placeholder="Enter First Name" required>
     <input type="text" id="last_name" name="last_name" class="form-input" placeholder="Enter Last Name" required>
     <button type="submit" class="form-submit">Insert</button>
