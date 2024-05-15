@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-{% if user.is_authenticated %}
+
 <div class="navbar">
     <h2>Welcome, <span id="username">{{ user.username }}</span></h2>
     <div class="menu-item" id="insert-plan">
@@ -21,7 +21,6 @@
 
 {% endblock %}
 
-{% endif %}
 <script src="{% static 'js/script.js' %}"></script>
 
 </body>

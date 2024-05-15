@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 import psycopg2
 
 from .forms import InsertForm, UpdateForm
 
+@login_required
 def plan_home_view(request):
     try:
         conn = psycopg2.connect("dbname=plan_test_db user=postgres password=eslam010")
@@ -20,7 +22,7 @@ def plan_home_view(request):
             
     return render(request, 'miplan/home.html')
 
-
+@login_required
 def insert_plan_view(request):
     if request.method == "POST":
         form = InsertForm(request.POST)
@@ -45,6 +47,7 @@ def insert_plan_view(request):
         form = InsertForm()
     return render(request, 'miplan/insert.html', {"form": form})
 
+@login_required
 def update_plan_view(request):
     if request.method == "POST":
         form = UpdateForm(request.POST)
