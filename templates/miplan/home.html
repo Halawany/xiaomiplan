@@ -5,26 +5,74 @@
 <table>
     <thead>
         <tr>
-            <!-- Header row with 28 columns -->
-           
+            <!-- Header row with column names -->
             <th>ID</th>
-            <th>First name</th>
-            <th>Last name</th>
-            
+            <th>Plan Date</th>
+            <th>Project</th>
+            <th>Group Level</th>
+            <th>PN</th>
+            <th>Sum In Quantity</th>
+            <th>D Plan Quantity</th>
+            <th>N Plan Quantity</th>
+            <th>Plan Quantity</th>
+            <th>Actual Quantity</th>
+            <th>Finish Rate</th>
+            <th>Plan Stock Quantity</th>
+            <th>Factory</th>
+            <th>Status</th>
+            <th>Upload Midate</th>
+            <th>Remark 1</th>
+            <th>Remark 2</th>
+            <th>Remark 3</th>
+            <th>Creation Date</th>
+            <th>Creation User</th>
+            <th>Modification Date</th>
+            <th>Modification User</th>
+            <th>To Place</th>
+            <th>Project Item</th>
+            <th>SS Code</th>
+            <th>D Plan Time</th>
+            <th>N Plan Time</th>
+            <th>D Hour Plan Quantity</th>
+            <th>N Hour Plan Quantity</th>
+        </tr>
     </thead>
     <tbody>
         <!-- Table rows with data -->
-        
-            {% for data in all_data %}
+        {% for data in all_data %}
             <tr>
-            <td>{{ data.0 }}</td>
-            <td>{{ data.1 }}</td>
-            <td>{{ data.2 }}</td>
+                <td>{{ data.0 }}</td>
+                <td>{{ data.1 }}</td>
+                <td>{{ data.2 }}</td>
+                <td>{{ data.3 }}</td>
+                <td>{{ data.4 }}</td>
+                <td>{{ data.5 }}</td>
+                <td>{{ data.6 }}</td>
+                <td>{{ data.7 }}</td>
+                <td>{{ data.8 }}</td>
+                <td>{{ data.9 }}</td>
+                <td>{{ data.10 }}</td>
+                <td>{{ data.11 }}</td>
+                <td>{{ data.12 }}</td>
+                <td>{{ data.13 }}</td>
+                <td>{{ data.14 }}</td>
+                <td>{{ data.15 }}</td>
+                <td>{{ data.16 }}</td>
+                <td>{{ data.17 }}</td>
+                <td>{{ data.18 }}</td>
+                <td>{{ data.19 }}</td>
+                <td>{{ data.20 }}</td>
+                <td>{{ data.21 }}</td>
+                <td>{{ data.22 }}</td>
+                <td>{{ data.23 }}</td>
+                <td>{{ data.24 }}</td>
+                <td>{{ data.25 }}</td>
+                <td>{{ data.26 }}</td>
+                <td>{{ data.27 }}</td>
+                <td>{{ data.28 }}</td>
+                <td>{{ data.29 }}</td>
             </tr>
-            {% endfor %}
-            
-        </tr>
-        <!-- Add more rows with data as needed -->
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}
