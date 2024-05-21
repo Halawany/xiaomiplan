@@ -1,9 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 .navbar {
     width: 250px;
     height: 100vh;
@@ -27,6 +21,9 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: block;
+    text-decoration: none; /* Remove default underline */
+    color: #fff; /* Set text color */
 }
 
 .menu-item:hover {
@@ -37,10 +34,22 @@ body {
     background-color: #555;
 }
 
-.content {
-    margin-left: 250px; /* Adjusted to match the width of the navbar */
-    overflow-x: auto; /* Added for horizontal scrolling */
+.sub-menu {
+    display: none;
+    transition: display 0.3s ease; /* Add transition for smoother display/hide */
 }
+
+.sub-menu {
+    display: none;
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: opacity 0.3s ease; /* Add transition for smoother opacity change */
+}
+
+.sub-menu.active {
+    display: block;
+    opacity: 1; /* Set opacity to 1 when active */
+}
+
 
 /* Table Styles */
 /* Table Styles */

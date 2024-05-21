@@ -9,13 +9,14 @@
 </head>
 <body>
 
-<div class="navbar">
+  <div class="navbar">
     <h2>Welcome, <span id="username">{{ user.username }}</span></h2>
-    <div class="menu-item" id="insert-plan">
-      Show Plan
+    <div class="menu-item active" id="production-plan">Production Plan</div>
+    <div class="sub-menu">
+      <a href="{% url 'home' %}" class="menu-item" id="show-plan">Show Plan</a>
+      <a href="{% url 'update' %}" class="menu-item" id="update-plan">Update Plan</a>
+      <a href="{% url 'insert' %}" class="menu-item" id="add-plan">Add New Plan</a>
     </div>
-    <div class="menu-item" id="update-plan">Update Plan</div>
-    <div class="menu-item" id="show-plan"><a href="{% url 'insert' %}">Insert New Plan<a></div>
 </div>
 {% block body %}
 
